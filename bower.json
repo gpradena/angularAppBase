@@ -1,0 +1,24 @@
+{
+  "name": "MetricVideoAnalytics",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Leandro <lramirez@metricarts.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bootstrap-sass": "bootstrap-sass-official#^3.3.7",
+    "angular": "^1.6.1",
+    "jquery": "^3.1.1",
+    "ui": "^0.0.5",
+    "angular-ui-router": "^0.3.2"
+  }
+}

@@ -1,0 +1,24 @@
+
+header{
+  height: 50px;
+  background-color: $main;
+  border-radius:  0px !important;
+  width: 100%;
+  position: fixed !important;
+  z-index:9999;
+
+  .nav>li>a:focus, header .nav>li>a:hover {
+      background-color: #961601 !important;
+      color: #FFF;
+  }
+}
+
+.navbar-header{
+  padding:10px 0 5px 0;
+}
+
+
+.logo{
+  width: 80px;
+  height: 80px;
+}
