@@ -6,7 +6,8 @@
       'ui.router',
       'app-tpl',
       'app.dashboard'
-    ]).config(Config);
+    ])
+    .config(Config);
 
     Config.$inject = ['$urlRouterProvider','$stateProvider', '$locationProvider'];
 
@@ -23,12 +24,15 @@
               }
           }
       })
-      .state('appLayout', {
+      .state('app', {
           views: {
-              'app-header': {
+              'app-view': {
+                  templateUrl: 'layout/main/main.tpl.html'
+              },
+              'header@app': {
                   templateUrl: 'layout/header/header.tpl.html'
               },
-              'app-menuLateral': {
+              'menu@app': {
                   templateUrl: 'layout/menuLateral/menuLateral.tpl.html'
               }
           }

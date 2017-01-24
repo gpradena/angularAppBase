@@ -1,20 +1,20 @@
 (function() {
     'use strict';
 
-    angular.module('app.dashboard', [])
-    .config(Config);
+    angular.module('app.dashboard').controller('dashboardController', dashboardController);
 
-    Config.$inject = ['$stateProvider'];
+     dashboardController.$inject = [
+        ''
+    ];
 
-    function Config($stateProvider) {
-        $stateProvider.state('app.dashboard', {
-            url: '/dashboard',
-            views: {
-                'app-view': {
-                    templateUrl: 'dashboard/dashboard.tpl.html',
-                    controller: 'dashboardController as vm'
-                }
+    function dashboardController(){
+
+
+            _init();
+
+             function _init() {
+
             }
-        });
-    }
+      }
+
 })();

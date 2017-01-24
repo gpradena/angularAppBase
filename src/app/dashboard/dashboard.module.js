@@ -10,7 +10,7 @@
         $stateProvider.state('app.dashboard', {
             url: '/dashboard',
             views: {
-                'app-view': {
+                'content@app': {
                     templateUrl: 'dashboard/dashboard.tpl.html',
                     controller: 'dashboardController as vm'
                 }

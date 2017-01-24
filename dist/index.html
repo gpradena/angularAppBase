@@ -10,23 +10,9 @@
     <!--<link rel="icon" type="img/ico" href="img/favicon.png">-->
   </head>
   <body ng-app="app">
-    <section class="vbox">
-      <header class="header navbar navbar-fixed-top-xs" ui-view="app-header"></header>
-      <section>
-        <section class="hbox stretch">
-          <div ui-view="app-menuLateral"></div>
-          <div class="wrapper">
-            <section class="vbox">
-              <section class="scrollable padder">
-                <div class="boxContent">
-                  <div ui-view="app-view"></div>
-                </div>
-              </section>
-            </section>
-          </div>
-        </section>
-      </section>
-    </section>
+
+    <div ui-view="app-view"></div>
+                
     <script src="vendor.js"></script>
     <script src="app-tpl.js"></script>
     <script src="app.js"></script>

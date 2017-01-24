@@ -6,7 +6,8 @@
       'ui.router',
       'app-tpl',
       'app.dashboard'
-    ]).config(Config);
+    ])
+    .config(Config);
 
     Config.$inject = ['$urlRouterProvider','$stateProvider', '$locationProvider'];
 
@@ -23,12 +24,15 @@
               }
           }
       })
-      .state('appLayout', {
+      .state('app', {
           views: {
-              'app-header': {
+              'app-view': {
+                  templateUrl: 'layout/main/main.tpl.html'
+              },
+              'header@app': {
                   templateUrl: 'layout/header/header.tpl.html'
               },
-              'app-menuLateral': {
+              'menu@app': {
                   templateUrl: 'layout/menuLateral/menuLateral.tpl.html'
               }
           }
@@ -50,7 +54,7 @@
         $stateProvider.state('app.dashboard', {
             url: '/dashboard',
             views: {
-                'app-view': {
+                'content@app': {
                     templateUrl: 'dashboard/dashboard.tpl.html',
                     controller: 'dashboardController as vm'
                 }
@@ -62,29 +66,29 @@
 (function() {
     'use strict';
 
-    angular.module('app.dashboard', [])
-    .config(Config);
+    angular.module('app.dashboard').controller('dashboardController', dashboardController);
 
-    Config.$inject = ['$stateProvider'];
+     dashboardController.$inject = [
+        ''
+    ];
 
-    function Config($stateProvider) {
-        $stateProvider.state('app.dashboard', {
-            url: '/dashboard',
-            views: {
-                'app-view': {
-                    templateUrl: 'dashboard/dashboard.tpl.html',
-                    controller: 'dashboardController as vm'
-                }
+    function dashboardController(){
+
+
+            _init();
+
+             function _init() {
+
             }
-        });
-    }
+      }
+
 })();
 
 (function(){
   'use strict';
 
   angular
-    .module('app.login')
+    .module('app')
     .controller('LoginController', LoginController);
 
   LoginController.$inject = ['$state'];
