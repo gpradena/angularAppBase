@@ -1,24 +1,144 @@
 
+.navbar-brand{
+  background-color:#2F4777;
+  color:#FFF;
+  width:220px;
+}
+
+.navbar-brand img {
+    vertical-align: middle;
+    display: inline;
+    margin-right: 5px;
+}
+
+.mainIcon{
+  max-height: 50px;
+}
+
+.mainLogo{
+  max-height: 35px;
+  margin-left: -15px;
+}
+
+.navbar-right{
+  background-color:#283C6D;
+}
+
+
 header{
-  height: 50px;
-  background-color: $main;
-  border-radius:  0px !important;
-  width: 100%;
-  position: fixed !important;
-  z-index:9999;
-
-  .nav>li>a:focus, header .nav>li>a:hover {
-      background-color: #961601 !important;
-      color: #FFF;
-  }
+  background-color: #283C6D;
 }
 
-.navbar-header{
-  padding:10px 0 5px 0;
+header .nav>li>a {
+    color: #FFF;
+}
+header .nav .open>a,
+header .nav>li>a:hover ,
+header .nav>li>a:focus,
+header .nav>li>a:active,
+header .nav>li>a:visited {
+  color:#fff;
+  background-color: #344B84 !important;
 }
 
 
-.logo{
-  width: 80px;
-  height: 80px;
+
+.header {
+  min-height: 50px;
+  padding: 0 15px;
+}
+
+.header > .btn,
+.header > .btn-group,
+.header > .btn-toolbar{
+  margin-top: 10px;
+}
+.header > .btn-lg{
+  margin-top: 0;
+}
+.header .nav-tabs{
+  border: none;
+  margin-left: -15px;
+  margin-right: -15px;
+}
+.header .nav-tabs > li a{
+  border: none !important;
+  border-radius: 0;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  line-height: 20px;
+}
+.header .nav-tabs > li a:hover,
+.header .nav-tabs > li a:focus{
+  background-color: transparent;
+}
+.header .nav-tabs > li.active a{
+  color: #717171;
+}
+.header .nav-tabs > li.active a,
+.header .nav-tabs > li.active a:hover{
+  background-color: #f7f7f7;
+}
+.header .nav-tabs.nav-white > li.active a,
+.header .nav-tabs.nav-white > li.active a:hover {
+  background-color: #fff;
+}
+.header.navbar{
+  min-height: 0;
+  border-radius: 0;
+  border: none;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.navbar-header {
+  position: relative;
+}
+.navbar-header > .btn {
+  position: absolute;
+  font-size: 1.3em;
+  padding: 9px 16px;
+  line-height: 30px;
+  left: 0;
+  color:#adbece;
+}
+.navbar-header .navbar-brand + .btn {
+  right: 0;
+  top: 0;
+  left: auto;
+}
+.navbar-brand {
+  float: none;
+  text-align: center;
+  font-size: 20px;
+  line-height: 50px;
+  display: inline-block;
+  padding: 0 8px;
+  font-weight: bold;
+}
+
+.navbar-brand:hover {
+  text-decoration: none;
+}
+
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: transparent;
+}
+.navbar-fixed-top + * {
+  padding-top: 50px;
+}
+.nav-user .avatar:before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  right: 5px;
+  bottom: 5px;
+  top: 5px;
+  border: 4px solid #fff;
+  border-radius: 500px;
+}
+.nav-primary li > a > i:before {
+  position: relative;
+  z-index: 2;
 }

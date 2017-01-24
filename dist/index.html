@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="app">
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -8,14 +8,27 @@
 
     <link   type="text/css" rel="stylesheet" charset="UTF-8" href="css/style.css">
     <!--<link rel="icon" type="img/ico" href="img/favicon.png">-->
-
-    <!--<script type="text/javascript" charset="UTF-8" src="init.js"></script>-->
   </head>
-  <body>
-    <div ui-view="app-view"></div>
-
+  <body ng-app="app">
+    <section class="vbox">
+      <header class="header navbar navbar-fixed-top-xs" ui-view="app-header"></header>
+      <section>
+        <section class="hbox stretch">
+          <div ui-view="app-menuLateral"></div>
+          <div class="wrapper">
+            <section class="vbox">
+              <section class="scrollable padder">
+                <div class="boxContent">
+                  <div ui-view="app-view"></div>
+                </div>
+              </section>
+            </section>
+          </div>
+        </section>
+      </section>
+    </section>
     <script src="vendor.js"></script>
     <script src="app-tpl.js"></script>
-		<script src="app.js"></script>
+    <script src="app.js"></script>
   </body>
 </html>

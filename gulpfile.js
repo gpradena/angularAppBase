@@ -19,7 +19,8 @@ var karma = require('karma');
 var debug = false;
 
 var sassPaths = [
-    'bower_components/bootstrap-sass/assets/stylesheets/'
+    'bower_components/bootstrap-sass/assets/stylesheets/',
+    'bower_components/font-awesome/scss/'
 ];
 
 var jsVendorPaths = [
@@ -85,6 +86,9 @@ gulp.task('css', function() {
 
 gulp.task('font', function() {
   gulp.src(['bower_components/bootstrap-sass/assets/fonts/**/**.*'])
+  .pipe(gulp.dest('dist/fonts'));
+
+  gulp.src(['bower_components/font-awesome/fonts/**.*'])
   .pipe(gulp.dest('dist/fonts'));
 });
 

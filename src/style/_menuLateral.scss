@@ -1,0 +1,35 @@
+
+.menulateral{
+    background-color: #fff;
+
+    -moz-transition: all 0.3s ease-out;
+    -webkit-transition: all 0.3s ease-out;
+    transition: all 0.3s ease-out;
+}
+
+.menuLateral>footer{
+    border-top: 1px solid #e6e6e6;
+}
+
+.nav-xs{
+  -moz-transition: all 0.3s ease-out;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
+}
+
+.bg-videoAn{
+  background-color: #6586C4;
+}
+
+#collapse_menu{
+  background-color: #2F4777;
+  color: #fff;
+}
+
+.nav-xs .nav-primary > ul > li > a:hover i{
+  color:#2e3e4e;
+}
+
+.nav-xs .bg-videoAn{
+  background-color: transparent;
+}
