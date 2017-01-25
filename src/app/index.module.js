@@ -1,10 +1,12 @@
 (function() {
     'use strict';
 
+    //angular.module('app.dashboard',[]);
 
     angular.module('app', [
       'ui.router',
       'app-tpl',
+      'app.directive',
       'app.dashboard'
     ])
     .config(Config);
@@ -33,7 +35,7 @@
                   templateUrl: 'layout/header/header.tpl.html'
               },
               'menu@app': {
-                  templateUrl: 'layout/menuLateral/menuLateral.tpl.html'
+                  templateUrl: 'layout/menu/menu.tpl.html'
               }
           }
       });

@@ -3,9 +3,6 @@
 
     angular.module('app.dashboard').controller('dashboardController', dashboardController);
 
-     dashboardController.$inject = [
-        ''
-    ];
 
     function dashboardController(){
 
