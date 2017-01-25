@@ -137,9 +137,9 @@
 
             var querySelector = document.querySelector.bind(document);
 
-            var nav = document.querySelector('.menulateral');
-            var btnIn = document.querySelector('.text');
-            var btnAc = document.querySelector('.text-active');
+            var nav     = document.querySelector('.menulateral');
+            var btnIn   = document.querySelector('.text');
+            var btnAc   = document.querySelector('.text-active');
             var wrapper = document.querySelector('.wrapper');
 
             var menu = document.getElementById("js-menu");

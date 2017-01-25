@@ -1,3 +1,15 @@
 .filterContent .panel-heading{
       border-bottom: 1px solid #cfcfcf;
 }
+
+.filterContent{
+  margin-bottom:10px;
+  display: table;
+  width: 100%;
+}
+
+.filterPanel{
+  background-color: #fff;
+  -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+  box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
