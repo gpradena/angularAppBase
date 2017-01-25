@@ -35,7 +35,7 @@
                   templateUrl: 'layout/header/header.tpl.html'
               },
               'menu@app': {
-                  templateUrl: 'layout/menu/menu.tpl.html'
+                  templateUrl: 'layout/menuLateral/menu.tpl.html'
               }
           }
       });
