@@ -1,13 +1,13 @@
 (function() {
     'use strict';
 
-    //angular.module('app.dashboard',[]);
-
     angular.module('app', [
       'ui.router',
       'app-tpl',
       'app.directive',
-      'app.dashboard'
+      'app.dashboard',
+      'app.analysisVideo',
+      'app.analysisPeople'
     ])
     .config(Config);
 
@@ -36,12 +36,57 @@
               },
               'menu@app': {
                   templateUrl: 'layout/menu/menu.tpl.html'
+              },
+              'filter@app': {
+                  templateUrl: 'layout/filter/filter.tpl.html'
               }
           }
       });
 
     }
 
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.analysisPeople', [])
+    .config(Config);
+
+    Config.$inject = ['$stateProvider'];
+
+    function Config($stateProvider) {
+        $stateProvider.state('app.analysisPeople', {
+            url: '/analysisPeople',
+            views: {
+                'content@app': {
+                    templateUrl: 'analysisPeople/analysisPeople.tpl.html',
+                    controller: 'analysisPeopleController as vm'
+                }
+            }
+        });
+    }
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.analysisVideo', [])
+    .config(Config);
+
+    Config.$inject = ['$stateProvider'];
+
+    function Config($stateProvider) {
+        $stateProvider.state('app.analysisVideo', {
+            url: '/analysisVideo',
+            views: {
+                'content@app': {
+                    templateUrl: 'analysisVideo/analysisVideo.tpl.html',
+                    controller: 'analysisVideoController as vm'
+                }
+            }
+        });
+    }
 })();
 
 (function() {
@@ -69,6 +114,45 @@
     'use strict';
 
     angular.module('app.directive', []);
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.analysisPeople').controller('analysisPeopleController', analysisPeopleController);
+
+
+    function analysisPeopleController(){
+
+
+            _init();
+
+             function _init() {
+
+            }
+      }
+
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.analysisVideo').controller('analysisVideoController', analysisVideoController);
+
+
+    function analysisVideoController(){
+
+
+            _init();
+
+             function _init() {
+               $('.affix').width($('.affix').parent().width() - 22);
+               $(window).resize(function () {
+                 $('.affix').width($('.affix').parent().width() - 22);
+               });
+            }
+      }
+
 })();
 
 (function() {
@@ -113,7 +197,7 @@
     'use strict';
 
     angular.module('app.directive')
-    .directive('menuLateralDirective', menuLateralDirective);
+    .directive('menuLateral', menuLateralDirective);
 
     menuLateralDirective.$inject = [ '$document', '$timeout' ];
 

@@ -2,7 +2,7 @@
     'use strict';
 
     angular.module('app.directive')
-    .directive('menuLateralDirective', menuLateralDirective);
+    .directive('menuLateral', menuLateralDirective);
 
     menuLateralDirective.$inject = [ '$document', '$timeout' ];
 

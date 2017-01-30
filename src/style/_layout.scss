@@ -89,9 +89,9 @@
       padding-left: 5px;
   }
 
-  .col-full-height:nth-child(3) .panelScroll{
+  /*.col-full-height:nth-child(3) .panelScroll{
     margin-right: 15px;
-  }
+  }*/
 }
 @media (min-width: 1200px) {
   .col-lg-height {
@@ -512,6 +512,15 @@
 .m-l-n {
   margin-left: -15px;
 }
+
+.p-l-xs {
+  padding-left: 0px;
+}
+
+.p-r-sm {
+  padding-right: 10px;
+}
+
 .m-l-n-md {
   margin-left: -20px;
 }
