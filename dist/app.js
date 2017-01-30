@@ -4,7 +4,7 @@
     angular.module('app', [
       'ui.router',
       'app-tpl',
-      'app.directive',
+      'app.directives',
       'app.dashboard',
       'app.analysisVideo',
       'app.analysisPeople'
@@ -34,9 +34,9 @@
               'header@app': {
                   templateUrl: 'layout/header/header.tpl.html'
               },
-              'menu@app': {
+              /*'menu@app': {
                   templateUrl: 'layout/menu/menu.tpl.html'
-              },
+              },*/
               'filter@app': {
                   templateUrl: 'layout/filter/filter.tpl.html'
               }
@@ -119,39 +119,75 @@
 (function() {
     'use strict';
 
-    angular.module('app.analysisPeople').controller('analysisPeopleController', analysisPeopleController);
+    angular.module('app')
+    .controller('analysisPeopleController', analysisPeopleController);
 
+    analysisPeopleController.$inject = ['$state'];
 
-    function analysisPeopleController(){
+    function analysisPeopleController($state){
+        var vm = this;
 
+        vm.init = init;
+        vm.panelInteraction = panelInteraction;
 
-            _init();
+        init();
 
-             function _init() {
+         function init() {
+           $('.panel1').width($('.panel1Container').width() - 22);
+           $(window).resize(function () {
+             $('.panel1').width($('.panel1Container').width() - 22);
+           });
+        }
 
-            }
-      }
+        function panelInteraction() {
+          console.log('click');
+        }
+
+    }
 
 })();
 
 (function() {
     'use strict';
 
-    angular.module('app.analysisVideo').controller('analysisVideoController', analysisVideoController);
+    angular.module('app')
+    .controller('analysisVideoController', analysisVideoController);
 
+    analysisVideoController.$inject = ['$state'];
 
-    function analysisVideoController(){
+    function analysisVideoController($state){
+        var vm = this;
 
+        vm.panelInteraction = panelInteraction;
 
-            _init();
+        _resizePanel();
 
-             function _init() {
-               $('.affix').width($('.affix').parent().width() - 22);
-               $(window).resize(function () {
-                 $('.affix').width($('.affix').parent().width() - 22);
-               });
-            }
-      }
+         function _resizePanel() {
+           $('.panel1').width($('.panel1Container').width() - 22);
+           $(window).resize(function () {
+             $('.panel1').width($('.panel1Container').width() - 22);
+           });
+        }
+
+        function panelInteraction(e) {
+
+          if($(e).hasClass('active')){
+            $(e).removeClass('active');
+            $('.panel1Container').removeClass('col-md-6');
+            $('.panel1Container').addClass('col-md-9');
+            $('.panel3Container').hide();
+            _resizePanel();
+          }else{
+            $(e).addClass('active');
+            $('.panel1Container').removeClass('col-md-9');
+            $('.panel1Container').addClass('col-md-6');
+            $('.panel3Container').show();
+            _resizePanel();
+          }
+
+        }
+
+    }
 
 })();
 
@@ -197,15 +233,14 @@
     'use strict';
 
     angular.module('app.directive')
-    .directive('menuLateral', menuLateralDirective);
+    .directive('menu', menuDirective);
 
-    menuLateralDirective.$inject = [ '$document', '$timeout' ];
+    menuDirective.$inject = [ '$document', '$timeout' ];
 
-    function menuLateralDirective($document, $timeout) {
-      console.log('weaweawea');
+    function menuDirective($document, $timeout) {
       var directive = {
           restrict: 'A',
-          link: link
+          templateUrl: 'directives/layout/menu/menu.tpl.html'
       };
       return directive;
     }
@@ -216,8 +251,6 @@
           var tid = setInterval( function () {
             if ( document.readyState !== 'complete' ) return;
             clearInterval( tid );
-
-
 
             var querySelector = document.querySelector.bind(document);
 
@@ -234,7 +267,6 @@
               nav.classList.toggle('nav-off-screen');
 
             };
-
 
             // Minify menu on menu_minifier click
             querySelector('#collapse_menu').onclick = function () {

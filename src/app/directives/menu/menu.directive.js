@@ -2,15 +2,14 @@
     'use strict';
 
     angular.module('app.directive')
-    .directive('menuLateral', menuLateralDirective);
+    .directive('menu', menuDirective);
 
-    menuLateralDirective.$inject = [ '$document', '$timeout' ];
+    menuDirective.$inject = [ '$document', '$timeout' ];
 
-    function menuLateralDirective($document, $timeout) {
-      console.log('weaweawea');
+    function menuDirective($document, $timeout) {
       var directive = {
           restrict: 'A',
-          link: link
+          templateUrl: 'directives/layout/menu/menu.tpl.html'
       };
       return directive;
     }
@@ -21,8 +20,6 @@
           var tid = setInterval( function () {
             if ( document.readyState !== 'complete' ) return;
             clearInterval( tid );
-
-
 
             var querySelector = document.querySelector.bind(document);
 
@@ -39,7 +36,6 @@
               nav.classList.toggle('nav-off-screen');
 
             };
-
 
             // Minify menu on menu_minifier click
             querySelector('#collapse_menu').onclick = function () {
