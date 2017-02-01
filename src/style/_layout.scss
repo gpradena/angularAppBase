@@ -485,9 +485,15 @@
 .m-l-xs {
   margin-left: 5px;
 }
+
+.p-l-xs{
+  padding-left:5px;
+}
+
 .m-l-sm {
   margin-left: 10px;
 }
+
 .m-l {
   margin-left: 15px;
 }
@@ -581,6 +587,11 @@
 .m-r-xs {
   margin-right: 5px;
 }
+
+.p-r-xs{
+  padding-right: 5px;
+}
+
 .m-r-sm {
   margin-right: 10px;
 }
@@ -658,4 +669,21 @@
 }
 .m-b-n-xl {
   margin-bottom: -40px;
+}
+
+
+.b-a {
+  border: 1px solid #cfcfcf;
+}
+.b-t {
+  border-top: 1px solid #cfcfcf;
+}
+.b-r {
+  border-right: 1px solid #cfcfcf;
+}
+.b-b {
+  border-bottom: 1px solid #cfcfcf;
+}
+.b-l {
+  border-left: 1px solid #cfcfcf;
 }

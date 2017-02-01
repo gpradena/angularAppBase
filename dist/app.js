@@ -4,7 +4,7 @@
     angular.module('app', [
       'ui.router',
       'app-tpl',
-      'app.directives',
+      'app.directive',
       'app.dashboard',
       'app.analysisVideo',
       'app.analysisPeople'
@@ -33,13 +33,13 @@
               },
               'header@app': {
                   templateUrl: 'layout/header/header.tpl.html'
-              },
+              }
               /*'menu@app': {
                   templateUrl: 'layout/menu/menu.tpl.html'
-              },*/
+              },
               'filter@app': {
                   templateUrl: 'layout/filter/filter.tpl.html'
-              }
+              }*/
           }
       });
 
@@ -113,7 +113,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.directives', []);
+    angular.module('app.directive', []);
 })();
 
 (function() {
@@ -125,23 +125,11 @@
     analysisPeopleController.$inject = ['$state'];
 
     function analysisPeopleController($state){
-        var vm = this;
 
         vm.init = init;
         vm.panelInteraction = panelInteraction;
 
-        init();
 
-         function init() {
-           $('.panel1').width($('.panel1Container').width() - 22);
-           $(window).resize(function () {
-             $('.panel1').width($('.panel1Container').width() - 22);
-           });
-        }
-
-        function panelInteraction() {
-          console.log('click');
-        }
 
     }
 
@@ -156,36 +144,6 @@
     analysisVideoController.$inject = ['$state'];
 
     function analysisVideoController($state){
-        var vm = this;
-
-        vm.panelInteraction = panelInteraction;
-
-        _resizePanel();
-
-         function _resizePanel() {
-           $('.panel1').width($('.panel1Container').width() - 22);
-           $(window).resize(function () {
-             $('.panel1').width($('.panel1Container').width() - 22);
-           });
-        }
-
-        function panelInteraction(e) {
-
-          if($(e).hasClass('active')){
-            $(e).removeClass('active');
-            $('.panel1Container').removeClass('col-md-6');
-            $('.panel1Container').addClass('col-md-9');
-            $('.panel3Container').hide();
-            _resizePanel();
-          }else{
-            $(e).addClass('active');
-            $('.panel1Container').removeClass('col-md-9');
-            $('.panel1Container').addClass('col-md-6');
-            $('.panel3Container').show();
-            _resizePanel();
-          }
-
-        }
 
     }
 
@@ -232,7 +190,31 @@
 (function() {
     'use strict';
 
-    angular.module('app.directives')
+    angular.module('app.directive')
+    .directive('filter', filterDirective);
+
+    filterDirective.$inject = [ '$document', '$timeout' ];
+
+    function filterDirective($document, $timeout) {
+      var directive = {
+          restrict: 'A',
+          templateUrl: 'layout/filter/filter.tpl.html',
+          link: link
+      };
+      return directive;
+    }
+
+    function link(scope, $element, attr) {
+
+
+
+  }
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.directive')
     .directive('menu', menuDirective);
 
     menuDirective.$inject = [ '$document', '$timeout' ];
@@ -240,37 +222,70 @@
     function menuDirective($document, $timeout) {
       var directive = {
           restrict: 'A',
-          templateUrl: 'directives/menu/menu.tpl.html'
+          templateUrl: 'layout/menu/menu.tpl.html',
+          link: link
       };
       return directive;
-
-      function link(scope, $element, attr) {
-
-        $timeout(function() {
-          var querySelector = $element.querySelector.bind(document);
-
-          var nav     = document.querySelector('.menulateral');
-          var btnIn   = document.querySelector('.text');
-          var btnAc   = document.querySelector('.text-active');
-          var wrapper = document.querySelector('.wrapper');
-
-          var menu = document.getElementById("js-menu");
-
-          //Toggle menu click
-          querySelector('.btn-link').onclick = function () {
-
-            nav.classList.toggle('nav-off-screen');
-
-          };
-
-          // Minify menu on menu_minifier click
-          querySelector('#collapse_menu').onclick = function () {
-            nav.classList.toggle('nav-xs');
-            btnIn.classList.toggle('text-active');
-            btnAc.classList.toggle('text-active');
-          };
-
-        });
-      }
     }
+
+    function link(scope, $element, attr) {
+
+            var nav     = angular.element('.menulateral');
+            var btnIn   = angular.element('.text');
+            var btnAc   = angular.element('.text-active');
+
+             //Toggle menu click
+            angular.element('.btn-link').on('click', function () {
+              $(nav).toggleClass('nav-off-screen');
+            });
+
+            // Minify menu on menu_minifier click
+            angular.element('#collapse_menu').on('click', function () {
+              $(nav).toggleClass('nav-xs');
+              $(btnIn).toggleClass('text-active');
+              $(btnAc).toggleClass('text-active');
+            });
+
+  }
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.directive')
+    .directive('panel', panelDirective);
+
+    panelDirective.$inject = [ '$document', '$timeout' ];
+
+    function panelDirective($document, $timeout) {
+      var directive = {
+          restrict: 'A',
+          link: link
+      };
+      return directive;
+    }
+
+    function link(scope, $element, attr) {
+
+
+      angular.element('.peopleIn').on('click', function() {
+
+
+        if($(this).hasClass('active')){
+          $(this).removeClass('active');
+          $('.panel1Container').removeClass('col-md-6');
+          $('.panel1Container').addClass('col-md-9');
+          $('.panel3Container').hide(400);
+        }else{
+          $('.peopleIn').removeClass('active');
+          $(this).addClass('active');
+          $('.panel1Container').removeClass('col-md-9');
+          $('.panel1Container').addClass('col-md-6');
+          $('.panel3Container').show(400);
+        }
+        _panelResize();
+
+      });
+
+  }
 })();

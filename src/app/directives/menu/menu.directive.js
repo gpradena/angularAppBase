@@ -1,7 +1,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.directives')
+    angular.module('app.directive')
     .directive('menu', menuDirective);
 
     menuDirective.$inject = [ '$document', '$timeout' ];
@@ -9,37 +9,29 @@
     function menuDirective($document, $timeout) {
       var directive = {
           restrict: 'A',
-          templateUrl: 'directives/menu/menu.tpl.html'
+          templateUrl: 'layout/menu/menu.tpl.html',
+          link: link
       };
       return directive;
-
-      function link(scope, $element, attr) {
-
-        $timeout(function() {
-          var querySelector = $element.querySelector.bind(document);
-
-          var nav     = document.querySelector('.menulateral');
-          var btnIn   = document.querySelector('.text');
-          var btnAc   = document.querySelector('.text-active');
-          var wrapper = document.querySelector('.wrapper');
-
-          var menu = document.getElementById("js-menu");
-
-          //Toggle menu click
-          querySelector('.btn-link').onclick = function () {
-
-            nav.classList.toggle('nav-off-screen');
-
-          };
-
-          // Minify menu on menu_minifier click
-          querySelector('#collapse_menu').onclick = function () {
-            nav.classList.toggle('nav-xs');
-            btnIn.classList.toggle('text-active');
-            btnAc.classList.toggle('text-active');
-          };
-
-        });
-      }
     }
+
+    function link(scope, $element, attr) {
+
+            var nav     = angular.element('.menulateral');
+            var btnIn   = angular.element('.text');
+            var btnAc   = angular.element('.text-active');
+
+             //Toggle menu click
+            angular.element('.btn-link').on('click', function () {
+              $(nav).toggleClass('nav-off-screen');
+            });
+
+            // Minify menu on menu_minifier click
+            angular.element('#collapse_menu').on('click', function () {
+              $(nav).toggleClass('nav-xs');
+              $(btnIn).toggleClass('text-active');
+              $(btnAc).toggleClass('text-active');
+            });
+
+  }
 })();

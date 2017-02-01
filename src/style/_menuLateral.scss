@@ -434,3 +434,12 @@
     display: none !important;
   }
 }
+
+
+.text-active,
+.active > .text {
+  display: none !important;
+}
+.active > .text-active {
+  display: inline-block !important;
+}

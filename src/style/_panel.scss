@@ -21,24 +21,17 @@
   -webkit-transition: width 0.5s;
    transition: width 0.5s;
 
-/*  .panel{
-    -webkit-transition: width 0.5s;
-     transition: width 0.5s;
-  }*/
 }
 .panel2Container{
   @media (min-width:992px){padding-right: 10px;padding-left: 0px;}
 
-  .panel{
-    -webkit-transition: width 0.5s;
-     transition: width 0.5s;
-  }
 }
 .panel3Container{
   @media (min-width:992px){padding-left: 0px;}
+
+  -webkit-transition: width 0.5s;
+   transition: width 0.5s;
 }
-
-
 
 
 @media (max-width:992px){
@@ -50,7 +43,4 @@
     position: inherit;
   }
 
-  .panelScroll{
-    position: inherit;
-  }
 }

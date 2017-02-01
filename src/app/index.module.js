@@ -4,7 +4,7 @@
     angular.module('app', [
       'ui.router',
       'app-tpl',
-      'app.directives',
+      'app.directive',
       'app.dashboard',
       'app.analysisVideo',
       'app.analysisPeople'
@@ -33,13 +33,13 @@
               },
               'header@app': {
                   templateUrl: 'layout/header/header.tpl.html'
-              },
+              }
               /*'menu@app': {
                   templateUrl: 'layout/menu/menu.tpl.html'
-              },*/
+              },
               'filter@app': {
                   templateUrl: 'layout/filter/filter.tpl.html'
-              }
+              }*/
           }
       });
 
