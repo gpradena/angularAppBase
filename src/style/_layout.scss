@@ -72,11 +72,6 @@
     float: none !important;
   }
 
-  .peopleInDesc .row, .peopleInTitle{
-    margin-left: 0px;
-    margin-right: 0px;
-  }
-
   .col-full-height:nth-child(1)
    {
       padding-right: 5px;
@@ -105,28 +100,6 @@
   width: 100%;
 }
 
-
-.peopleInContainer:nth-child(1) .peopleIn
-,.relatedVideoContainer:nth-child(1) .videoIn{
-  margin-top: 0px;
-  margin-bottom: 5px;
-}
-
-.peopleIn, .videoIn{
-  margin-top: 5px;
-  margin-bottom: 10px;
-  cursor:pointer !important;
-}
-
-.peopleInTitle span{
-    color: #383838;
-    font-size: 14px;
-    font-weight: bold;
-}
-
-.peopleInDesc{
-  margin-top:5px;
-}
 
 .img-thumbnail{
   border-radius: 0px;

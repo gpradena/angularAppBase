@@ -8,10 +8,6 @@
 
     function analysisPeopleController($state){
 
-        vm.init = init;
-        vm.panelInteraction = panelInteraction;
-
-
 
     }
 

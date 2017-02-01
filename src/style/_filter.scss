@@ -4,9 +4,10 @@
 
 .filterContent{
   padding: 10px 15px 0 15px;
-  /*margin-bottom:10px;
-  display: table;
-  width: 100%;*/
+}
+
+.nav .lt{
+  background-color: #fff;
 }
 
 .filterPanel{
@@ -17,4 +18,15 @@
 
 .bg-filter{
   background-color: #92C83D;
+}
+
+.op{
+  .lt{
+    display:block !important;
+  }
+}
+.cl{
+  .lt{
+    display:none !important;
+  }
 }

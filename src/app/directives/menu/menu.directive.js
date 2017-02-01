@@ -17,21 +17,51 @@
 
     function link(scope, $element, attr) {
 
-            var nav     = angular.element('.menulateral');
-            var btnIn   = angular.element('.text');
-            var btnAc   = angular.element('.text-active');
+        _init();
 
-             //Toggle menu click
-            angular.element('.btn-link').on('click', function () {
-              $(nav).toggleClass('nav-off-screen');
-            });
+        function _init(){
+          var menu     = angular.element('.menulateral');
+          var btnIn   = angular.element('.text');
+          var btnAc   = angular.element('.text-active');
 
-            // Minify menu on menu_minifier click
-            angular.element('#collapse_menu').on('click', function () {
-              $(nav).toggleClass('nav-xs');
-              $(btnIn).toggleClass('text-active');
-              $(btnAc).toggleClass('text-active');
-            });
+          //Toggle menu click
+          angular.element('.btn-link').on('click', function () {
+            $(menu).toggleClass('nav-off-screen');
+          });
+
+          // Minify menu on menu_minifier click
+          angular.element('#collapse_menu').on('click', function () {
+            $(menu).toggleClass('nav-xs');
+            $(btnIn).toggleClass('text-active');
+            $(btnAc).toggleClass('text-active');
+          });
+
+          _optionsMenu();
+        }
+
+        function _optionsMenu(){
+          var filter = angular.element('.filter');
+          var navLi = angular.element('.nav li');
+          var navA = angular.element('.nav a');
+
+          $(navLi).on('click', function(){
+            $(navLi).removeClass('active');
+            $(navA).removeClass('active');
+            $(this).addClass('active');
+            $(this).children().addClass('active');
+          });
+
+          $(filter).on('click', function(){
+            if($(this).hasClass('op')){
+              $(this).removeClass('op');
+              $(this).addClass('cl');
+            }else{
+              $(this).removeClass('cl');
+              $(this).addClass('op');
+            }
+          });
+
+        }
 
   }
 })();

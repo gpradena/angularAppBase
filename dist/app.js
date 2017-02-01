@@ -126,10 +126,6 @@
 
     function analysisPeopleController($state){
 
-        vm.init = init;
-        vm.panelInteraction = panelInteraction;
-
-
 
     }
 
@@ -215,44 +211,6 @@
     'use strict';
 
     angular.module('app.directive')
-    .directive('menu', menuDirective);
-
-    menuDirective.$inject = [ '$document', '$timeout' ];
-
-    function menuDirective($document, $timeout) {
-      var directive = {
-          restrict: 'A',
-          templateUrl: 'layout/menu/menu.tpl.html',
-          link: link
-      };
-      return directive;
-    }
-
-    function link(scope, $element, attr) {
-
-            var nav     = angular.element('.menulateral');
-            var btnIn   = angular.element('.text');
-            var btnAc   = angular.element('.text-active');
-
-             //Toggle menu click
-            angular.element('.btn-link').on('click', function () {
-              $(nav).toggleClass('nav-off-screen');
-            });
-
-            // Minify menu on menu_minifier click
-            angular.element('#collapse_menu').on('click', function () {
-              $(nav).toggleClass('nav-xs');
-              $(btnIn).toggleClass('text-active');
-              $(btnAc).toggleClass('text-active');
-            });
-
-  }
-})();
-
-(function() {
-    'use strict';
-
-    angular.module('app.directive')
     .directive('panel', panelDirective);
 
     panelDirective.$inject = [ '$document', '$timeout' ];
@@ -268,24 +226,106 @@
     function link(scope, $element, attr) {
 
 
-      angular.element('.peopleIn').on('click', function() {
+      _layout();
+
+      function _layout(){
+
+        angular.element('.peopleIn').on('click', function() {
+          if($(this).hasClass('active')){
+            $(this).removeClass('active');
+            $('.panel1Container').removeClass('col-md-6');
+            $('.panel1Container').addClass('col-md-9');
+            $('.panel3Container').hide(400);
+          }else{
+            $('.peopleIn').removeClass('active');
+            $('.videoIn').removeClass('active');
+            $(this).addClass('active');
+            $('.panel1Container').removeClass('col-md-9');
+            $('.panel1Container').addClass('col-md-6');
+            $('.panel3Container').show(400);
+          }
+        });
+
+        angular.element('.videoIn').on('click', function() {
+          if($(this).hasClass('active')){
+            $(this).removeClass('active');
+          }else{
+            $('.videoIn').removeClass('active');
+            $(this).addClass('active');
+          }
+        });
+
+      }
 
 
-        if($(this).hasClass('active')){
-          $(this).removeClass('active');
-          $('.panel1Container').removeClass('col-md-6');
-          $('.panel1Container').addClass('col-md-9');
-          $('.panel3Container').hide(400);
-        }else{
-          $('.peopleIn').removeClass('active');
-          $(this).addClass('active');
-          $('.panel1Container').removeClass('col-md-9');
-          $('.panel1Container').addClass('col-md-6');
-          $('.panel3Container').show(400);
+
+  }
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.directive')
+    .directive('menu', menuDirective);
+
+    menuDirective.$inject = [ '$document', '$timeout' ];
+
+    function menuDirective($document, $timeout) {
+      var directive = {
+          restrict: 'A',
+          templateUrl: 'layout/menu/menu.tpl.html',
+          link: link
+      };
+      return directive;
+    }
+
+    function link(scope, $element, attr) {
+
+        _init();
+
+        function _init(){
+          var menu     = angular.element('.menulateral');
+          var btnIn   = angular.element('.text');
+          var btnAc   = angular.element('.text-active');
+
+          //Toggle menu click
+          angular.element('.btn-link').on('click', function () {
+            $(menu).toggleClass('nav-off-screen');
+          });
+
+          // Minify menu on menu_minifier click
+          angular.element('#collapse_menu').on('click', function () {
+            $(menu).toggleClass('nav-xs');
+            $(btnIn).toggleClass('text-active');
+            $(btnAc).toggleClass('text-active');
+          });
+
+          _optionsMenu();
         }
-        _panelResize();
 
-      });
+        function _optionsMenu(){
+          var filter = angular.element('.filter');
+          var navLi = angular.element('.nav li');
+          var navA = angular.element('.nav a');
+
+          $(navLi).on('click', function(){
+            $(navLi).removeClass('active');
+            $(navA).removeClass('active');
+            $(this).addClass('active');
+            $(this).children().addClass('active');
+          });
+
+          $(filter).on('click', function(){
+            if($(this).hasClass('op')){
+              $(this).removeClass('op');
+              $(this).addClass('cl');
+            }else{
+              $(this).removeClass('cl');
+              $(this).addClass('op');
+            }
+          });
+
+        }
 
   }
 })();

@@ -1,8 +1,6 @@
 
 .panel{
   padding: 10px;
-  /*max-height: 100%;
-  height: 100%;*/
   margin-bottom: 0px;
   border-radius: 0px;
 }
@@ -11,7 +9,6 @@
   height: auto !important;
   overflow-y: auto;
   overflow-x: hidden;
-  /*position: absolute;*/
 }
 
 
@@ -20,12 +17,12 @@
 
   -webkit-transition: width 0.5s;
    transition: width 0.5s;
-
 }
+
 .panel2Container{
   @media (min-width:992px){padding-right: 10px;padding-left: 0px;}
-
 }
+
 .panel3Container{
   @media (min-width:992px){padding-left: 0px;}
 
@@ -43,4 +40,44 @@
     position: inherit;
   }
 
+}
+
+
+.peopleInContainer:nth-child(1) .peopleIn
+,.relatedVideoContainer:nth-child(1) .videoIn{
+  margin-top: 0px;
+  margin-bottom: 5px;
+}
+
+.peopleIn, .videoIn{
+  padding:5px 5px 5px 5px;
+  margin:5px -11px 5px -11px;
+  cursor:pointer !important;
+}
+
+.peopleInTitle span{
+    color: #383838;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.peopleInDesc{
+  margin-top:5px;
+}
+
+
+.peopleInDesc .row, .peopleInTitle{
+  margin-left: 0px;
+  margin-right: 0px;
+}
+
+
+.peopleInContainer, .relatedVideoContainer{
+  .active{
+    background-color: #ddd;
+  }
+}
+
+.imgContainer{
+  padding: 8px 0px 5px 0px;
 }
