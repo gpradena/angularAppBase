@@ -3,6 +3,7 @@
 
     angular.module('app', [
       'ui.router',
+      'base64',
       'app-tpl',
       'app.directive',
       'app.dashboard',
@@ -32,7 +33,8 @@
                   templateUrl: 'layout/main/main.tpl.html'
               },
               'header@app': {
-                  templateUrl: 'layout/header/header.tpl.html'
+                  templateUrl: 'layout/header/header.tpl.html',
+                  controller: 'HeaderController as vm'
               }
               /*'menu@app': {
                   templateUrl: 'layout/menu/menu.tpl.html'
@@ -41,7 +43,13 @@
                   templateUrl: 'layout/filter/filter.tpl.html'
               }*/
           }
-      });
+      })
+      .state('logout', {
+            url: '/logout',
+            views: {
+                'app-view': { controller: 'LogoutController' }
+            }
+        });
 
     }
 

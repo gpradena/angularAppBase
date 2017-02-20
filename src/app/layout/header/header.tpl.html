@@ -40,13 +40,20 @@
     <li class="dropdown">
         <a role="button" class="dropdown-toggle" data-toggle="dropdown">
           <i class="fa fa-user-circle-o"></i>
-          </span> Nombre usuario <b class="caret"></b>
+          </span> {{vm.user.username}} <b class="caret"></b>
         </a>
         <ul class="dropdown-menu animated fadeInRight"> <span class="arrow top"></span>
             <li> <a role="button">Opciones</a> </li>
             <li> <a role="button">Perfil</a> </li>
             <li class="divider"></li>
-            <li> <a role="button" data-toggle="">Logout</a></li>
+            <li><a
+                              ui-sref="app.logout()"
+                              ng-class="{ active: vm.state.includes('app.logout')}"
+                              role="button">
+                              <i class="fa fa-dashboard icon"><b class="bg-videoAn"></b></i>
+                              <span>Dashboard</span>
+                            </a></li>
+            <li> <a role="button" data-toggle="" ui-sref="app.logout()">Logout</a></li>
         </ul>
     </li>
 </ul>

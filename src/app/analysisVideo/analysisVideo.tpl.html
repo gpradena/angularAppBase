@@ -3,14 +3,13 @@
       <div class="panel panel1">
         <div class="row">
           <div class="col-md-12">
-            <video class="mainVideo" controls="controls">
-              <source src="" type="video/mp4">
+            <video ng-src="{{vm.videoSrc.Url}}" id="cam1" class="mainVideo" controls="controls">
             </video>
           </div>
         </div>
         <div class="row">
           <div class="col-md-12">
-            <h4>Título del video...</h4>
+            <h4>{{vm.videoSrc.VideoName}}</h4>
           </div>
         </div>
         <div class="row">

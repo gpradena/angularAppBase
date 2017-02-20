@@ -1,6 +1,7 @@
 var gulp = require('gulp');
 var connect = require('connect');
 var livereload = require('gulp-watch');
+var uglify = require('gulp-uglify');
 var watch = require('gulp-watch');
 var rimraf = require('rimraf');
 var connect = require('gulp-connect');
@@ -27,6 +28,7 @@ var jsVendorPaths = [
     'bower_components/jquery/dist/jquery.js',
     'bower_components/angular/angular.js',
     'bower_components/angular-ui-router/release/angular-ui-router.js',
+    'bower_components/angular-base64/angular-base64.js',
     'bower_components/bootstrap-sass/assets/javascripts/bootstrap.min.js'
 ];
 
